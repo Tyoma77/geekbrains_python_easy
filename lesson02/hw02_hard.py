@@ -20,6 +20,14 @@ date = '01.22.1001'
 date = '1.12.1001'
 date = '-2.10.3001'
 
+date_list = date.split('.')
+
+if int(date_list[0]) < 1 or int(date_list[0]) > 32 or int(date_list[1]) < 1 or int(date_list[1]) > 13 or int(date_list[2]) < 1, /
+or int(date_list[2]) > 9999 or date_list[0].len == 2 or date_list[1].len == 2 or date_list[2].len == 4:
+	print("Дата некорректна")
+else:
+	print("Дата корректна")
+
 # Задание-3: "Перевернутая башня" (Задача олимпиадного уровня)
 #
 # Вавилонцы решили построить удивительную башню — расширяющуюся к верху и содержащую бесконечное число этажей и комнат.
