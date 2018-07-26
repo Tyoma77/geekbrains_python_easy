@@ -22,8 +22,9 @@ date = '-2.10.3001'
 
 date_list = date.split('.')
 
-if int(date_list[0]) < 1 or int(date_list[0]) > 32 or int(date_list[1]) < 1 or int(date_list[1]) > 13 or int(date_list[2]) < 1, /
-or int(date_list[2]) > 9999 or date_list[0].len == 2 or date_list[1].len == 2 or date_list[2].len == 4:
+if int(date_list[0]) < 1 or int(date_list[0]) > 32 or int(date_list[1]) < 1 or int(date_list[1]) > 13 \
+   or int(date_list[2]) < 1 or int(date_list[2]) > 9999 or date_list[0].len == 2 or date_list[1].len == 2 \
+   or date_list[2].len == 4:
 	print("Дата некорректна")
 else:
 	print("Дата корректна")
