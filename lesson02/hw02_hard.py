@@ -1,8 +1,29 @@
 # Задание-1: уравнение прямой вида y = kx - b задано ввиде строки.
 # Определить координату y, точки с заданной координатой x
 
-equation = 'y = -12x + 11111140.2121'
-x = 2.5
+
+def first():
+    equation = 'y = -12x + 11111140.2121'
+    x = 2.5
+    tmp_eq = equation.split(' ')
+
+    while tmp_eq.count('y') > 0:
+        tmp_eq.remove('y')
+
+    while tmp_eq.count('=') > 0:
+        tmp_eq.remove('=')
+
+    k = float(tmp_eq[0].replace('x', ''))
+
+    if tmp_eq[-1] == '+':
+        b = -float(tmp_eq[2])
+    else:
+        b = float(tmp_eq[2])
+    print(b)
+    y = k * x - b
+    print(y)
+
+
 # вычислите и выведите y
 
 # Задание-2: Дата задана в виде строки формата 'dd.mm.yyyy', проверить корректно ли введена дата
@@ -19,6 +40,25 @@ date = '01.11.1985'
 date = '01.22.1001'
 date = '1.12.1001'
 date = '-2.10.3001'
+
+
+def second(check_date):
+    date_list = check_date.split('.')
+    print(date_list)
+    print(int(date_list[0]))
+    print(int(date_list[1]))
+    print(int(date_list[2]))
+    print(len(date_list[0]))
+    print(len(date_list[1]))
+    print(len(date_list[2]))
+
+    if int(date_list[0]) < 1 or int(date_list[0]) > 32 or int(date_list[1]) < 1 or int(date_list[1]) > 13 \
+            or int(date_list[2]) < 1 or int(date_list[2]) > 9999 or len(date_list[0]) != 2 or len(date_list[1]) != 2 \
+            or len(date_list[2]) != 4:
+        print("Дата некорректна")
+    else:
+        print("Дата корректна")
+
 
 # Задание-3: "Перевернутая башня" (Задача олимпиадного уровня)
 #
@@ -46,3 +86,52 @@ date = '-2.10.3001'
 #
 # Вход: 11
 # Выход: 5 3
+
+
+def third():
+    while True:
+        try:
+            print("Введите номер квартиры")
+            flat: int = int(input())
+            if flat > 2000000000 or flat < 1:
+                raise IndexError
+            break
+        except ValueError:
+            print("Вы ввели буквенные символы, введите число")
+        except IndexError:
+            print("Вы ввели неправильную квартиру, введите число от 1 до 2000000000")
+
+    block = 0
+    l_floor = 0
+    l_flat = 0
+
+    while flat > l_flat:
+        block += 1
+        l_floor += block
+        l_flat += block * block
+
+    n = 0
+
+    while l_flat > flat:
+        l_flat -= 1
+
+        if n < block - 1:
+            n += 1
+        else:
+            l_floor -= 1
+            n = 0
+
+    position = block - n
+
+    print("Квартира № {} находится на {} этаже, по счету {}".format(flat, l_floor, position))
+
+
+if __name__ == '__main__':
+    first()
+
+    second('01.11.1985')
+    second('01.22.1001')
+    second('1.12.1001')
+    second('-2.10.3001')
+
+    third()
