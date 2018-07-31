@@ -19,9 +19,15 @@ print(fibonacci(3, 10))
 
 
 def sort_to_max(origin_list):
-    pass
-
-
+    n = 1 
+	while n < len(origin_list):
+	    for i in range(len(origin_list) - n):
+	        if origin_list[i] > origin_list[i + 1]:
+	            origin_list[i], origin_list[i + 1] = origin_list[i + 1], origin_list[i]
+        n += 1
+	    
+    print(origin_list)
+	    
 sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
 
 # Задача-3:
