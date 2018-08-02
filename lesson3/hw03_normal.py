@@ -44,11 +44,12 @@ sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
 def my_filter(condition, *args):
     lst = []
 
-    for i in args: 
-        if i != condition: 
+    for i in args:
+        if i != condition:
             lst.append(i)
-            
+
     return lst
+
 
 # Задача-4:
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
@@ -73,6 +74,5 @@ A1 = (1, 3)
 A3 = (-1, 4)
 A2 = (4, 7)
 A4 = (2, 8)
-
 
 print(check_para(A1, A2, A3, A4))
