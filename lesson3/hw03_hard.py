@@ -41,3 +41,24 @@ with open(path, 'r', encoding='UTF-8') as f:
 # Подсказка:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
+
+def fruits():
+  dikt_fruts = dict()
+
+  path_f = os.path.join("data", "fruits.txt")
+
+  with open(path_f, encoding='utf-8') as input_file:
+      for fruits in input_file.readlines():
+          file_name = 'fruits_{}'.format(fruits[0].upper())
+          dikt_fruts[file_name] = dikt_fruts.get(file_name,'') + fruits
+      
+  for i in dikt_fruts:
+      path = os.path.join('newdata', '{}.txt'.format(i))
+      directory = os.path.dirname(path)
+      try:
+        with open(path,'w') as out:
+            out.write(dikt_fruts[i])
+      except:
+        os.mkdir(directory)
+            
+fruits()       
