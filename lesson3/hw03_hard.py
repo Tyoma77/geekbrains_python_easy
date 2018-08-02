@@ -21,14 +21,6 @@ import re
 # они получают удвоенную ЗП, пропорциональную норме.
 # Кол-во часов, которые были отработаны, указаны в файле "data/hours_of"
 
-path = os.path.join("data", "workers")
-with open(path, 'r', encoding='UTF-8') as f:
-    y = f.readlines()
-
-    for i in y:
-        i = re.sub(r'\s+', ' ', i)
-        print(i)
-
 # Задание-3:
 # Дан файл ("data/fruits") со списком фруктов.
 # Записать в новые файлы все фрукты, начинающиеся с определенной буквы.
