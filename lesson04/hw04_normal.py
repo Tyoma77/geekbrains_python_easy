@@ -28,8 +28,7 @@ import os
 UP = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 def first_with_re(ln):
-    new_line = re.split('[A-Z]', ln)
-    new_line = [i for i in new_line if i != '']
+    new_line = re.findall('[a-z]+', ln)
     return new_line
 
 
