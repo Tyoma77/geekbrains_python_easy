@@ -1,6 +1,7 @@
 import os
 import re
 
+
 # Задание-1:
 # Написать программу, выполняющую операции (сложение и вычитание) с простыми дробями.
 # Дроби вводятся и выводятся в формате:
@@ -35,22 +36,23 @@ import re
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
 
 def fruits():
-  dikt_fruts = dict()
+    dike_fruits = dict()
 
-  path_f = os.path.join("data", "fruits.txt")
+    path_f = os.path.join("data", "fruits.txt")
 
-  with open(path_f, encoding='utf-8') as input_file:
-      for fruits in input_file.readlines():
-          file_name = 'fruits_{}'.format(fruits[0].upper())
-          dikt_fruts[file_name] = dikt_fruts.get(file_name,'') + fruits
-      
-  for i in dikt_fruts:
-      path = os.path.join('newdata', '{}.txt'.format(i))
-      directory = os.path.dirname(path)
-      try:
-        with open(path,'w') as out:
-            out.write(dikt_fruts[i])
-      except:
-        os.mkdir(directory)
-            
-fruits()       
+    with open(path_f, encoding='utf-8') as input_file:
+        for fruits in input_file.readlines():
+            file_name = 'fruits_{}'.format(fruits[0].upper())
+            dike_fruits[file_name] = dike_fruits.get(file_name, '') + fruits
+
+    for i in dike_fruits:
+        path = os.path.join('newdata', '{}.txt'.format(i))
+        directory = os.path.dirname(path)
+        try:
+            with open(path, 'w') as out:
+                out.write(dike_fruits[i])
+        except:
+            os.mkdir(directory)
+
+
+fruits()
