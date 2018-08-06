@@ -25,11 +25,23 @@ import os
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
 
+UP = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 def first_with_re(ln):
     new_line = re.split('[A-Z]', ln)
     new_line = [i for i in new_line if i != '']
     return new_line
+
+
+def fist_wo_re(ln):
+    for j in range(0, len(ln)):
+        if ln[j] in UP:
+            ln = ln.replace(ln[j], ' ')
+  
+    s = ln.split(' ')
+    s = [i for i in s if i != '']
+  
+    return s
 
 
 def second_with_re(ln):
@@ -106,6 +118,8 @@ if __name__ == "__main__":
            'DyleXylnKBfLCjLHntltignbQoiQzTYwZAiRwycdlHfyHNGmkNqSwXUrxGc'
 
     print(first_with_re(line))
+    
+    print(fist_wo_re(line))
 
     line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNOGIPHpEMujalpPLNzRWXfwHQqwksrFeip' \
              'EUlTLeclMwAoktKlfUBJHPsnawvjPhfgewVfzKTUfSYtBydXaVIpxWjNKgXANvIoumesCSSvjEGRJosUfuhRRDUuTQwLlJJJDdkVj' \
