@@ -26,9 +26,9 @@ def delete_path(name):
     try:
         os.remove(path)
     except FileNotFoundError:
-        print('Такой папки не существует')
+        print('Невозможно удалить. Такой папки не существует')
     except PermissionError:
-        print('У вас нет прав')
+        print('Невозможно удалить. У вас нет прав')
 
 
 def copy_file(name):
@@ -38,6 +38,10 @@ def copy_file(name):
         print('Такого файла не существует')
     except PermissionError:
         print('У вас нет прав')
+
+
+def show_list_dir(name):
+    print(os.listdir(name))
 
 
 def first():
@@ -51,7 +55,7 @@ def first():
 
 
 def second():
-    print(os.listdir(os.getcwd()))
+    show_list_dir(os.getcwd())
 
 
 def third():

@@ -1,4 +1,7 @@
-import lesson05
+import lesson05.hw05_easy as hw
+import os
+
+
 # Задача-1:
 # Напишите небольшую консольную утилиту, позволяющую работать с папками текущей директории.
 # Утилита должна иметь меню выбора действия, в котором будут пункты:
@@ -12,6 +15,24 @@ import lesson05
 # Для решения данной задачи используйте алоритмы из задания easy,
 # оформленныйе в виде соответствующих функций, и импортированные в данный файл из easy.py
 
+def main():
+    while True:
+        print("Выбирете действие: \n 1. Перейти в папку \n 2. Просмотреть содержимое текущей папки \n 3. Удалить папку"
+              "\n 4. Создать папку \n 5. Выход")
+        choice = int(input())
+        if choice == 5:
+            break
+        elif choice == 1:
+            pass
+        elif choice == 2:
+            hw.show_list_dir(os.getcwd())
+        elif choice == 3:
+            pass
+        elif choice == 4:
+            pass
+        elif choice == 5:
+            pass
+
 
 if __name__ == '__main__':
-    pass
+    main()
