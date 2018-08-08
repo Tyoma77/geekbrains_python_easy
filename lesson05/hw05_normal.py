@@ -30,16 +30,14 @@ def main():
         if choice == 5:
             break
         elif choice == 1:
-            pass
+            os.chdir(ask_dir())
         elif choice == 2:
             hw.show_list_dir(os.getcwd())
         elif choice == 3:
-            pass
-        elif choice == 4:
             hw.create_path(ask_dir())
-        elif choice == 5:
-            pass
-
+        elif choice == 4:
+            hw.delete_path(ask_dir())
+            
 
 if __name__ == '__main__':
     main()
