@@ -15,6 +15,13 @@ import os
 # Для решения данной задачи используйте алоритмы из задания easy,
 # оформленныйе в виде соответствующих функций, и импортированные в данный файл из easy.py
 
+
+def ask_dir():
+        print('Ведите директорию')
+        name = input()
+        return name
+
+
 def main():
     while True:
         print("Выбирете действие: \n 1. Перейти в папку \n 2. Просмотреть содержимое текущей папки \n 3. Удалить папку"
@@ -29,7 +36,7 @@ def main():
         elif choice == 3:
             pass
         elif choice == 4:
-            pass
+            hw.create_path(ask_dir())
         elif choice == 5:
             pass
 

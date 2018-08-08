@@ -18,7 +18,9 @@ def create_path(name):
     try:
         os.mkdir(path)
     except FileExistsError:
-        print('Такая папка уже сущесвует')
+        print('Папка не создана. Такая папка уже сущесвует')
+    else:
+        print('Успешно создана')
 
 
 def delete_path(name):
@@ -29,6 +31,8 @@ def delete_path(name):
         print('Невозможно удалить. Такой папки не существует')
     except PermissionError:
         print('Невозможно удалить. У вас нет прав')
+    else:
+        print('Успешно удалена')
 
 
 def copy_file(name):
