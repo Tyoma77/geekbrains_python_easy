@@ -32,7 +32,11 @@ class Worker:
                     return int(tmp_l[2])
 
     def month_payment(self, name, surname, hours, salary):
-        return Decimal(Worker.get_hours(self, name, surname) / hours * salary)
+        hours_of = Worker.get_hours(self, name, surname)
+        if hours_of <= hours:
+            return Decimal(hours_of / hours * salary)
+        else:
+            return Decimal(salary + 2 * salary / hours * (hours_of - hours))
 
 
 if __name__ == '__main__':
