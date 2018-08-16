@@ -2,37 +2,49 @@ import lesson07.keg as keg
 import lesson07.ticket as ticket
 
 
+import keg as keg
+import ticket as ticket
+
+
 def main():
-    #print('Сыграем? Д/Н')
-    #ans = input()
-    #if ans.lower() == 'д':
-    ticket_computer = ticket.Ticket()
-    ticket_player = ticket.Ticket()
+
+    ticket_computer = ticket.Ticket('ai')
+    ticket_player = ticket.Ticket(str(input('Введите имя \n')))
     kegs = keg.Kegs()
-    try:
-        while len(kegs.kegs_list) > 1:
-            kegs.new_keg()
-            k = kegs.current_keg
-            ticket_player.print_ticket()
-            ticket_computer.print_ticket()
-            ticket_computer.replace(k)
-            ticket_computer.check_victory()
-    except IndexError:
-        print('Победа')
-            #while True:
-            #    print('Зачеркнуть бочонок? Д/Н')
-             #   na = input()
-              #  if na.lower() == 'д':
-               #     try:
-                #        ticket_player.check_keg(k)
-                 #   except ValueError:
-                  #      print("Вы прогирали!")
-                   #     break
-                    #else:
-                     #   ticket_player.replace(k)
-                      #  break
-
-
+    lose = 0
+    while True:
+        kegs.new_keg()
+        k = kegs.current_keg
+        ticket_player.print_ticket()
+        ticket_computer.print_ticket()
+        
+        k in ticket_computer
+        if ticket_computer.check_victory():
+            break
+            
+        while True:
+            an = input('Зачеркнуть бочонок? д/н')
+            if an.lower() == 'д':
+                if k in ticket_player:
+                    break
+                else:
+                    lose = 1
+                    break
+            elif an.lower() == 'н':
+                if k in ticket_player:
+                    lose = 1
+                    break
+                else:
+                    break
+            else:
+                print('Введено неверное значение')
+        
+        if lose == 1:
+            print('Вы проиграли')
+            break
+        
+        if ticket_player.check_victory():
+            break
 
 
 if __name__ == '__main__':
