@@ -3,19 +3,22 @@ import lesson07.ticket as ticket
 
 
 def main():
-    print('Сыграем? Д/Н')
-    ans = input()
-    if ans.lower() == 'д':
-        ticket_computer = ticket.Ticket()
-        ticket_player = ticket.Ticket()
-        kegs = keg.Kegs()
+    #print('Сыграем? Д/Н')
+    #ans = input()
+    #if ans.lower() == 'д':
+    ticket_computer = ticket.Ticket()
+    ticket_player = ticket.Ticket()
+    kegs = keg.Kegs()
+    try:
         while len(kegs.kegs_list) > 1:
             kegs.new_keg()
             k = kegs.current_keg
-
             ticket_player.print_ticket()
             ticket_computer.print_ticket()
             ticket_computer.replace(k)
+            ticket_computer.check_victory()
+    except IndexError:
+        print('Победа')
             #while True:
             #    print('Зачеркнуть бочонок? Д/Н')
              #   na = input()
