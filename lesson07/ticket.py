@@ -2,7 +2,10 @@ import random
 
 
 class Ticket:
-    def __init__(self):
+    
+    def __init__(self, name):
+        self.name = name
+        self.points = 0
         self.tmp_list = [i for i in range(1, 91)]
         self.ticket = []
         for i in range(3):
@@ -25,17 +28,16 @@ class Ticket:
         print('-' * 25)
 
     def check_keg(self, num):
-        if num not in self.ticket:
-            raise ValueError
+        if num in self.ticket:
+            return False
 
     def replace(self, n):
             for i in range(3):
                 for j in range(9):
                     if self.ticket[i][j] == n:
                         self.ticket[i][j] = '-'
-
-                        print(self.ticket.count('-'))
+                        self.points += 1
 
     def check_victory(self):
-        if self.ticket.count('-') == 15:
+        if self.points == 15:
             raise IndexError
