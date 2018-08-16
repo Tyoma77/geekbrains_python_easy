@@ -27,17 +27,15 @@ class Ticket:
             print()
         print('-' * 25)
 
-    def check_keg(self, num):
-        if num in self.ticket:
-            return False
-
-    def replace(self, n):
-            for i in range(3):
+    def __contains__(self, n):
+        for i in range(3):
                 for j in range(9):
                     if self.ticket[i][j] == n:
                         self.ticket[i][j] = '-'
                         self.points += 1
+                        return True
 
     def check_victory(self):
         if self.points == 15:
-            raise IndexError
+            print('{} выйграл'.format(self.name))
+            return True
