@@ -2,10 +2,6 @@ import lesson07.keg as keg
 import lesson07.ticket as ticket
 
 
-import keg as keg
-import ticket as ticket
-
-
 def main():
 
     ticket_computer = ticket.Ticket('ai')
