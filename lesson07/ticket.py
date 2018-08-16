@@ -33,8 +33,8 @@ class Ticket:
                 for j in range(9):
                     if self.ticket[i][j] == n:
                         self.ticket[i][j] = '-'
-                        if self.ticket.count('-') == 15:
-                            print('Victory')
+
+                        print(self.ticket.count('-'))
 
     def check_victory(self):
         if self.ticket.count('-') == 15:
